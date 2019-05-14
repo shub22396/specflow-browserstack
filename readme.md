@@ -7,14 +7,12 @@
 
 ## Setup
 * Clone the repo
-* Open the solution `SpecFlow-BrowserStack.sln` in Visual Studio 2015 Update 2
+* Open the solution `SpecFlow-BrowserStack.sln` in Visual Studio 2017.
 * Build the solution
 * Update `App.config` file with your BrowserStack Username and Access Key(https://www.browserstack.com/accounts/settings)
 
 ## Running your tests from Test Explorer via NUnit Test Adapter
-- To run a single test, run test with fixture `single`
-- To run local tests, run test with fixture `local`
-- To run parallel tests, run tests with fixture `parallel`
+- To run the tests, right click on any test in "Test Explorer" and click on "Run Selected Tests".
 
  Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
 

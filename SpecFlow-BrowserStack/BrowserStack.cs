@@ -78,19 +78,17 @@ namespace SpecFlow_BrowserStack
 
       capability.SetCapability("browserstack.user", username);
       capability.SetCapability("browserstack.key", accesskey);
-
-      File.AppendAllText("C:\\Users\\Admin\\Desktop\\sf.log", "Starting local");
-
+     
       if (capability.GetCapability("browserstack.local") != null && capability.GetCapability("browserstack.local").ToString() == "true")
       {
         browserStackLocal = new Local();
         List<KeyValuePair<string, string>> bsLocalArgs = new List<KeyValuePair<string, string>>() {
-          new KeyValuePair<string, string>("key", accesskey)
+          new KeyValuePair<string, string>("key", accesskey),
+          new KeyValuePair<string, string>("logfile", Path.Combine(Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%"), ".browserstack\\local.log"))
         };
         browserStackLocal.start(bsLocalArgs);
       }
 
-      File.AppendAllText("C:\\Users\\Admin\\Desktop\\sf.log", "Starting driver");
       driver = new RemoteWebDriver(new Uri("http://" + ConfigurationManager.AppSettings.Get("server") + "/wd/hub/"), capability);
       return driver;
     }
